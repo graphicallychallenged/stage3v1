@@ -33,6 +33,8 @@ class WelcomeContainer extends Component{
 
   handleSubmit(teamName) {
 
+    this.props.actions.setTeamName(teamName)
+
     //Navigate to tabbar key
     RouteActions.tabbar();
 
@@ -44,5 +46,10 @@ const styles = StyleSheet.create({
     flex:1
   }
 })
-
+function mapDispatchToProps(dispatch){
+  return: {
+    Actions: bindActionCreators(ActionCreators, dispath)
+  }
+}
 export default WelcomeContainer;
+export default connect(null, mapDispatchToProps)(WelcomeContainer)
