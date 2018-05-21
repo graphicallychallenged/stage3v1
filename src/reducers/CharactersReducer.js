@@ -19,10 +19,17 @@ export default function CharactersReducer(state = {items: {}, isLoading: false, 
     /*1. Add requested cases here
 
     */
+   case GET_CHARACTERS_REQUESTED:
+   return{...state, isLoading: true}
 
     /* 2. Add character success case here
-
     */
+   case GET_CHARACTERS_SUCCESS:
+   return{
+     ...state,
+     isLoading:false,
+     items:convertMarvelResponse(action.payload.characters)
+    }
 
     case SKIP:
     case SELECT:
@@ -45,7 +52,7 @@ export default function CharactersReducer(state = {items: {}, isLoading: false, 
 }
 
 function convertMarvelResponse(characters){
-
+/*converts arrays to objects*/
   let normalizedObj = {};
 
   characters.results.forEach((character) => {

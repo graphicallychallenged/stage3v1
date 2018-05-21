@@ -34,6 +34,12 @@ export function setTeamName(teamName) {
 * @param character
 */
  // 1.
+ export function select(character) {
+  return{
+    type: SELECT,
+    payload: { character }
+  }
+ }
 
 /**
 * Skip Character
@@ -79,6 +85,8 @@ export function skip(character) {
     /* 2. Dispatch getCharactersRequested and getCharactersSuccess here
 
     */
+   dispath(getCharactersRequested());
+   dispatch(getCharactersSuccess(marvelResponse.data.results))
 
    };
  };
